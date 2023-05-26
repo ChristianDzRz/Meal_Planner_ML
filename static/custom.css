@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+
+body{
+	background-image: url("../static/images/carrots-food-fresh-freshness-616404(1).jpg");
+	background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:100vh;
+	font-family: 'Noto Sans', sans-serif;
+}
+.text-center{
+	color:#fff;
+	text-transform:uppercase;
+    font-size: 23px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+.scrollBox{
+	position:absolute;
+	left:50%;
+	top:50%;
+    height:500px;
+	transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.89);
+	border-radius:3px;
+	padding:70px 100px;
+	width:50%;
+    overflow-y: scroll;
+}
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#fff;
+    pointer-event:none;
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{
+  border:0;
+  border-bottom:1px solid #555;
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+}
+.input-container input:focus{
+ border:none;
+ outline:none;
+ border-bottom:1px solid #e74c3c;
+}
+.btn{
+	color:#fff;
+	background-color:#e74c3c;
+	outline: none;
+    border: 0;
+    color: #fff;
+	padding:10px 20px;
+	text-transform:uppercase;
+	margin-top:50px;
+  margin-bottom: 50px;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+  left: calc(50% - 35px);
+
+
+}
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+
+}
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+}
+.float-right{
+  float: right;
+}
+.fa{
+ font-size: .8em;
+  line-height: 22px !important;
+}
+.wrap-drop {
+background:#e7ded5;
+box-shadow:3px 3px 3px rgba(0,0,0,.2);
+cursor:pointer;
+margin:0 auto;
+max-width:400px;
+padding:1rem;
+position:relative;
+width:75%;
+z-index:3;
+}
+
+.wrap-drop::after {
+border-color:#695d52 transparent;
+border-style:solid;
+border-width:10px 10px 0;
+content:"";
+height:0;
+margin-top:-4px;
+position:absolute;
+right:1rem;
+top:50%;
+width:0;
+}
+
+.wrap-drop .drop {
+background:#e7ded5;
+box-shadow:3px 3px 3px rgba(0,0,0,.2);
+display:none;
+left:0;
+list-style:none;
+margin-top:0;
+opacity:0;
+padding-left:0;
+pointer-events:none;
+position:absolute;
+right:0;
+top:100%;
+z-index:2;
+}
+
+.wrap-drop .drop li a {
+color:black;
+font-size:16px;
+display:block;
+padding:1rem;
+text-decoration:none;
+}
+
+.wrap-drop span {
+color:#928579;
+}
+
+.wrap-drop .drop li:hover a {
+background-color:#695d52;
+color:#e7ded5;
+}
+
+.wrap-drop.active::after {
+border-width:0 10px 10px;
+}
+
+.wrap-drop.active .drop {
+display:block;
+opacity:1;
+pointer-events:auto;
+}
+dropdown{
+   display: inline-block;
+   margin: 20px 50px;
+}
+dropdown label, dropdown ul li{
+  display: block;
+  width: 200px;
+  background: #ECF0F1;
+  padding: 15px 20px;
+}
+dropdown label:hover, dropdown ul li:hover{
+  background: #1ABC9C;
+  color: white;
+  cursor: pointer;
+}
+dropdown label{
+  color: #1ABC9C;
+  border-left: 4px solid #1ABC9C;
+  border-radius: 0 5px 0 0;
+  position: relative;
+  z-index: 2;
+}
+dropdown input{
+  display: none;
+}
+dropdown input ~ ul{
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -20px;
+  z-index: 1;
+}
+dropdown input:checked + label{
+  background: #1ABC9C;
+  color: white;
+}
+
+dropdown input:checked ~ ul{
+  visibility: visible;
+  opacity: 1;
+  top: 0;
+}
+$colors: #E74C3C, #0072B5, #2C3E50;
+
+@for $i from 1 through length($colors) {
+  dropdown ul li:nth-child(#{$i}) {
+    border-left: 4px solid nth($colors, $i);
+    .fa{
+      color: nth($colors, $i);
+    }
+    &:hover {
+        background: nth($colors, $i);
+        color: white;
+      .fa{
+        color: white;
+      }
+    }
+  }
+}
+
+.animate{
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden; /* Chrome and Safari */
+  -moz-backface-visibility:hidden; /* Firefox */
+  -ms-backface-visibility:hidden; /* Internet Explorer */
+}
+
+.option{
+  color: white;
+  font-size:16px;
+  text-align: center;
+	position:relative;
+	margin-bottom:25px;
+}
+
+.recipe-card {
+  background: #fff;
+  margin: 1em auto;
+  width: 90%;
+  max-width: 496px;
+}
+
+article {
+  padding: 1.25em 1.5em;
+}
+
+article ul {
+  list-style: none;
+  margin: 0.5em 0 0;
+  padding: 0;
+}
+
+article li {
+  display: inline-block;
+  margin-left: 1em;
+  line-height: 1em;
+}
+
+article li:first-child {
+  margin-left: 0;
+}
+
+article .icon {
+  vertical-align: bottom;
+}
+
+article span:nth-of-type(2) {
+  margin-left: 0.5em;
+  font-size: 0.8em;
+  font-weight: bold;
+  vertical-align: middle;
+  color: #000;
+}
+
+h2,
+h3 {
+  margin: 0;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: em(28);
+  color: #222222;
+}
+
+h3 {
+  font-size: em(15);
+  color: #838689;
+}
+
+
+.recipe-card a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.recipe-card a:hover {
+  text-decoration: underline;
+}
+.recipe-button {
+  appearance: none;
+  background-color: #5ad485;
+  color: white;
+  margin-top:20px;
+  font-size:16px;
+  border: none;
+  height:$calc(1.25 * 1rem) * 2;
+  padding: 0 1rem;
+  border-radius:$calc(1.25 * 1rem);
+  font-size: type-scale(-1);
+
+
+}

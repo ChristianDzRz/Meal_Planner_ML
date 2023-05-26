@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+
+body{
+	background-image: url("https://images.pexels.com/photos/616404/pexels-photo-616404.jpeg?cs=srgb&dl=carrots-food-fresh-freshness-616404.jpg&fm=jpg");
+	background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:100vh;
+	font-family: 'Noto Sans', sans-serif;
+}
+.text-center{
+	color:#fff;
+	text-transform:uppercase;
+    font-size: 23px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+.scrollBox{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.89);
+	border-radius:3px;
+	padding:70px 100px;
+	width:50%;
+  overflow-y: auto;
+}
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#fff;
+    pointer-event:none;
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{
+  border:0;
+  border-bottom:1px solid #555;
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+}
+.input-container input:focus{
+ border:none;
+ outline:none;
+ border-bottom:1px solid #e74c3c;
+}
+.btn{
+	color:#fff;
+	background-color:#e74c3c;
+	outline: none;
+    border: 0;
+    color: #fff;
+	padding:10px 20px;
+	text-transform:uppercase;
+	margin-top:50px;
+  margin-bottom: 50px;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+  left: calc(50% - 35px);
+
+
+}
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+
+}
+
+.wrap-drop {
+background:#e7ded5;
+box-shadow:3px 3px 3px rgba(0,0,0,.2);
+cursor:pointer;
+margin:0 auto;
+max-width:400px;
+padding:1rem;
+position:relative;
+width:75%;
+z-index:3;
+}
+
+.wrap-drop::after {
+border-color:#695d52 transparent;
+border-style:solid;
+border-width:10px 10px 0;
+content:"";
+height:0;
+margin-top:-4px;
+position:absolute;
+right:1rem;
+top:50%;
+width:0;
+}
+
+.wrap-drop .drop {
+background:#e7ded5;
+box-shadow:3px 3px 3px rgba(0,0,0,.2);
+display:none;
+left:0;
+list-style:none;
+margin-top:0;
+opacity:0;
+padding-left:0;
+pointer-events:none;
+position:absolute;
+right:0;
+top:100%;
+z-index:2;
+}
+
+.wrap-drop .drop li a {
+color:black;
+font-size:16px;
+display:block;
+padding:1rem;
+text-decoration:none;
+}
+
+.wrap-drop span {
+color:#928579;
+}
+
+.wrap-drop .drop li:hover a {
+background-color:#695d52;
+color:#e7ded5;
+}
+
+.wrap-drop.active::after {
+border-width:0 10px 10px;
+}
+
+.wrap-drop.active .drop {
+display:block;
+opacity:1;
+pointer-events:auto;
+}
+
+.goals{
+  color: white;
+  font-size:16px;
+  text-align: center;
+	position:relative;
+	margin-bottom:25px;
+}
+/* Recipe layout*/
+
+$container-width: 500px;
+
+
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+
+$type-settings: (
+  -1: (
+    font-size: 0.75rem,
+    line-height: $base-line-height
+  ),
+  0: (
+    font-size: 1rem,
+    line-height: $base-line-height
+  ),
+  1: (
+    font-size: 1.333rem,
+    line-height: $base-line-height * 2
+  ),
+  2: (
+    font-size: 1.778rem,
+    line-height: $base-line-height * 2
+  )
+);
+
+@function type-scale($level) {
+  @return map-get(
+    map-get($type-settings, $level), 'font-size');
+}
+
+@function line-height($level) {
+  @return map-get(
+    map-get($type-settings, $level), 'line-height');
+}
+
+@mixin type-setting($level) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+$recipe-colors: (
+  'primary': #5ad485,
+  'background': #e1e1e1,
+  'gray': #999,
+  'border': #ccc
+);
+
+@function recipe-color($name) {
+  @return map-get($recipe-colors, $name);
+};
+
+.baseline-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.guide {
+  margin-bottom: 5 * $base-line-height;
+
+  &, &:before, &:after {
+    height: $base-line-height;
+    width: 100%;
+    outline: 1px solid turquoise;
+  }
+
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 200%;
+  }
+
+  &:after {
+    top: 400%;
+  }
+}
+
+.recipe-container {
+  font-weight: 400;
+  text-align: center;
+  width: $container-width;
+  left: calc(50% - 250px);;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 0 5rem rgba(black, 0.1);
+
+  &:hover {
+    > .baseline-grid {
+      opacity: 1;
+    }
+  }
+}
+
+
+.recipe-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  padding: $base-line-height * 2 1rem;
+}
+
+.heading-2 {
+  @include type-setting(-1);
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 4px;
+  color: recipe-color('gray');
+}
+
+.heading-1 {
+  @include type-setting(1);
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1 * $base-line-height 0;
+}
+
+.paragraph {
+  @include type-setting(0);
+  margin: 0 0 $base-line-height 0;
+}
+
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  &.meta {
+    > .recipe-item {
+      display: inline-block;
+      padding-right: 2rem;
+    }
+  }
+}
+
+.recipe-item {
+  padding: 0 1rem;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  > .recipe-value {
+    @include type-setting(1);
+    font-weight: bold;
+  }
+
+  > .recipe-text {
+    @include type-setting(-1);
+  }
+
+  & + & {
+    border-left: 1px solid recipe-color('border');
+  }
+}
+
+.recipe-button {
+  appearance: none;
+  background-color: recipe-color('primary');
+  color: white;
+  margin-top:20px;
+  border: none;
+  height: $base-line-height * 2;
+  padding: 0 1rem;
+  border-radius: $base-line-height;
+  font-size: type-scale(-1);
+
+  &.transparent {
+    background-color: transparent;
+    color: gray;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  position: relative;
+}

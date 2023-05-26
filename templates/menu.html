@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link href="{{url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet" >
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="{{url_for('static',filename='custom.css')}}" rel="stylesheet" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'drop-down.js') }}"></script>
+</head>
+<body>
+    <div class="scrollBox">
+
+            <span class="text-center">Meal Planning Assisted by Machine Learning</span>
+        <form action='/' method="POST">
+
+        <div class="input-container">
+            <input type="number" required="" name="age" min="18" max="99"/>
+            <label>Age</label>
+        </div>
+        <div class="input-container">
+            <input type="number" required="" name="height" min="100" max="220"/>
+            <label>Height (cm) </label>
+        </div>
+        <div class="input-container">
+            <input type="number" required="" name="weight" min="30" max="500"/>
+            <label>Weight (kg) </label>
+        </div>
+            <div class="input-container">
+            <input type="number" required="" name="budget" min="10" max="1000"/>
+            <label>Budget</label>
+        </div>
+            <div class="input-container">
+            <input type="text" required="" name="Allergies"/>
+            <label>Allergies</label>
+        </div>
+
+            <div class="input-container">
+            <input type="text" required="" name="Ingredients"/>
+            <label>Ingredients</label>
+        </div>
+
+    <div class="option">
+    <h3>Choose your goals</h3>
+     <div class="regular-field">
+            <input type="radio" id="fat-loss" name="goals" value="fat_loss" checked/>
+            <label for="fat-loss">Fat Loss</label>
+            <input type="radio" id="muscle-gain" name="goals" value="muscle_gain" />
+            <label for="muscle-gain">Muscle Gain</label>
+            <input type="radio" id="maintain-weight" name="goals" value="maintain_weight" />
+            <label for="maintain-weight">Maintain Weight</label>
+        </div>
+    </div>
+    <div class="option">
+    <h3>Sex</h3>
+     <div class="regular-field">
+            <input type="radio" id="male" name="sex" value=0 checked/>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="sex" value=1 />
+            <label for="female">Female</label>
+
+        </div>
+    </div>
+            <select class="browser-default custom-select custom-select-lg mb-3" name="activity">
+  <option selected>Select one</option>
+                <option value="1">Sedentary</option>
+                <option value="2">Light activity</option>
+                <option value="3">Moderate activity</option>
+                <option value="4">High Activity</option>
+                <option value="5">Extreme Activity</option>
+</select>
+
+    <button type="submit" class="btn">submit</button>
+                    </form>
+<div class="recipe-card">
+
+  <article>
+
+    <h2>{{breakfast_title}}</h2>
+    <h3>Breakfast</h3>
+
+    <ul>
+      <li><span>Price</span><span>{{price_b}}</span></li>
+      <li><span>Fat</span><span>{{fat_b}}</span></li>
+      <li><span>Protein</span><span>{{protein_b}}</span></li>
+      <li><span>Carbs</span><span>{{carbs_b}}</span></li>
+      <li><span>Calories</span><span>{{calories_b}}</span></li>
+    </ul>
+
+        <button class="recipe-button" >
+      View Recipe
+    </button>
+  </article>
+
+</div>
+            <div class="recipe-card">
+
+  <article>
+
+    <h2>{{lunch_title}}</h2>
+    <h3>Lunch</h3>
+
+    <ul>
+      <li><span>Price</span><span>{{price_l}}</span></li>
+      <li><span>Fat</span><span>{{fat_l}}</span></li>
+      <li><span>Protein</span><span>{{protein_l}}</span></li>
+      <li><span>Carbs</span><span>{{carbs_l}}</span></li>
+      <li><span>Calories</span><span>{{calories_l}}</span></li>
+    </ul>
+
+        <button class="recipe-button">
+      View Recipe
+    </button>
+  </article>
+
+</div>
+            <div class="recipe-card">
+
+  <article>
+
+    <h2>{{dinner_title}}</h2>
+    <h3>Dinner</h3>
+
+    <ul>
+      <li><span>Price</span><span>{{price_d}}</span></li>
+      <li><span>Fat</span><span>{{fat_d}}</span></li>
+      <li><span>Protein</span><span>{{protein_d}}</span></li>
+      <li><span>Carbs</span><span>{{carbs_d}}</span></li>
+      <li><span>Calories</span><span>{{calories_d}}</span></li>
+    </ul>
+
+        <button class="recipe-button">
+      View Recipe
+    </button>
+  </article>
+
+</div>
+
+    </div>
+        </div>
+</body>
+</html>
